@@ -5,7 +5,6 @@
 //  Created by Cuma Haznedar on 01/05/2023.
 //
 
-
 import Foundation
 
 // MARK: - GamesModel
@@ -15,7 +14,8 @@ struct BaseResponse: Codable {
     let previous: String?
     let results: [Game]?
     let seoTitle, seoDescription, seoKeywords, seoH1: String?
-    let noindex, nofollow: Bool?
+    let noindex: Bool?
+    let nofollow: Bool?
     let description: String?
     let filters: Filters?
     let nofollowCollections: [String]?

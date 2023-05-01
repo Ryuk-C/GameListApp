@@ -16,7 +16,7 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         configure()
     }
-// MARK: - UI Configure
+
     private func configure() {
         homeViewController.tabBarItem.image = UIImage(systemName: "gamecontroller.fill")
         favoritesViewController.tabBarItem.image = UIImage(systemName: "heart.fill")

@@ -21,7 +21,6 @@ final class HomeViewModel {
     var gamesList: [Game] = []
     var paging = false
     var nextPageUrl = ""
-    var page = 1
     var pageSize = 55
 }
 
@@ -38,20 +37,18 @@ extension HomeViewModel: HomeViewModelProtocol {
         self.view?.setLoading(isLoading: true)
         service.fetchGames(pageSize: pageSize, paging: paging, newUrl: nextPageUrl) {[weak self] results in
             guard let self else { return }
-            self.view?.setLoading(isLoading: false)
+            //self.view?.setLoading(isLoading: false)
             switch results {
             case .success(let games):
                 DispatchQueue.main.async {
-                   // s//elf.games = games
-                    self.gamesList.append(contentsOf: games?.results ?? [])
+                    //self.gamesList.append(contentsOf: games?.results ?? [])
                     self.paging = true
                     self.nextPageUrl = games?.next ?? ""
                     self.view?.reloadCollectionView()
                 }
            
-            case .failure(let error):
-                print(error)
-                //self.delegate?.dataError()
+            case .failure(_):
+                self.view?.dataError()
             }
         }
     }
@@ -65,6 +62,5 @@ extension HomeViewModel: HomeViewModelProtocol {
         } else {
             getGames()
         }
-        
     }
 }

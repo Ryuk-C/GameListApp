@@ -5,10 +5,10 @@
 //  Created by Cuma Haznedar on 01/05/2023.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
-final class GamesCell : UICollectionViewCell {
+final class GamesCell: UICollectionViewCell {
     
     static var reuseID = "GamesCell"
     
@@ -22,8 +22,9 @@ final class GamesCell : UICollectionViewCell {
     
     private lazy var gameNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
         label.textColor = .white
+        label.textAlignment = .left
         return label
     }()
     
@@ -41,9 +42,6 @@ final class GamesCell : UICollectionViewCell {
         contentView.addSubview(gameImageView)
         contentView.addSubview(gameNameLabel)
         
-        gameNameLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)
-        gameNameLabel.textColor = .white
-        
         gameNameLabel.translatesAutoresizingMaskIntoConstraints = false
         gameImageView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -57,9 +55,9 @@ final class GamesCell : UICollectionViewCell {
         NSLayoutConstraint.activate([
             gameNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             gameNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            gameNameLabel.bottomAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: -20)
+            gameNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            gameNameLabel.bottomAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: -10)
         ])
-        
     }
     
     func design(gameImageURL: String, gameName: String) {

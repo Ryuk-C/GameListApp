@@ -11,7 +11,7 @@ protocol FavoriteScreenDelegate: AnyObject {
     func configureVC()
 }
 
-class FavoriteScreen: UIViewController {
+final class FavoriteScreen: UIViewController {
 
     var viewModel = FavoritesViewModel()
     

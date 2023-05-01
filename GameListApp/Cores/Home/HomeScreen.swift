@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeScreenDelegate: AnyObject {
     func setLoading(isLoading: Bool)
+    func dataError()
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
@@ -33,16 +34,17 @@ final class HomeScreen: UIViewController {
 
         viewModel.view = self
         viewModel.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
 }
 
 extension HomeScreen: HomeScreenDelegate {
+    func dataError() {
+        self.errorMessage(title: "Error", message: "Games could not loaded! Please try again.")
+    }
+    
     func reloadCollectionView() {
         
         collectionView.reloadOnMainThread()
-
     }
     
     func configureCollectionView() {
@@ -60,44 +62,47 @@ extension HomeScreen: HomeScreenDelegate {
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 15),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-            ])
+        ])
     }
     
     func setLoading(isLoading: Bool) {
         if isLoading {
             self.activityIndicator.startAnimating()
-        }else{
+        } else {
             self.activityIndicator.stopAnimating()
         }
     }
     
     func configureVC() {
+        
         view.backgroundColor = .systemGray5
         
         title = "Games"
-                
+        
+        view.addSubview(activityIndicator)
+        view.addSubview(searchBar)
+        
+        searchBar.delegate = self
+
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         self.searchBar.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
-
-        view.addSubview(searchBar)
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            ])
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
         
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
-
-        //view.addSubview(activityIndicator)
-        
-        searchBar.delegate = self
-        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     @objc func tapDone(sender: Any) {
@@ -111,14 +116,16 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         viewModel.gamesList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamesCell.reuseID, for: indexPath) as! GamesCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamesCell.reuseID,
+                                                      for: indexPath) as! GamesCell
         
-        cell.design(gameImageURL: viewModel.gamesList[indexPath.item].backgroundImage ?? "", gameName: viewModel.gamesList[indexPath.item].name ?? "")
+        cell.design(gameImageURL: viewModel.gamesList[indexPath.item].backgroundImage ?? "",
+                    gameName: viewModel.gamesList[indexPath.item].name ?? "")
         return cell
-        
     }
-    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
@@ -129,7 +136,6 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if offsetY >= contentHeight - (2 * height) {
             viewModel.getGames()
         }
-
     }
 }
 
@@ -138,10 +144,4 @@ extension HomeScreen: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.viewModel.search(searchText)
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
-        {
-            //searchActive = false
-            self.searchBar.endEditing(true)
-        }
 }
