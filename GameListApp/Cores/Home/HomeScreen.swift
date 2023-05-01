@@ -49,14 +49,10 @@ extension HomeScreen: HomeScreenDelegate {
     
     func configureCollectionView() {
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createHomeFlowLayout())
-
-        view.addSubview(collectionView)
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .systemGray5
+        collectionView.backgroundColor = .white
         collectionView.register(GamesCell.self, forCellWithReuseIdentifier: GamesCell.reuseID)
         
         collectionView!.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -79,14 +75,17 @@ extension HomeScreen: HomeScreenDelegate {
     
     func configureVC() {
         
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .white
         
         title = "Games"
         
-        view.addSubview(activityIndicator)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createHomeFlowLayout())
+        view.addSubview(collectionView)
         view.addSubview(searchBar)
+        view.addSubview(activityIndicator)
         
         searchBar.delegate = self
+        searchBar.backgroundImage = UIImage()
 
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         self.searchBar.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))

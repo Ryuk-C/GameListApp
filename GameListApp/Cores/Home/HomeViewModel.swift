@@ -37,11 +37,11 @@ extension HomeViewModel: HomeViewModelProtocol {
         self.view?.setLoading(isLoading: true)
         service.fetchGames(pageSize: pageSize, paging: paging, newUrl: nextPageUrl) {[weak self] results in
             guard let self else { return }
-            //self.view?.setLoading(isLoading: false)
+            self.view?.setLoading(isLoading: false)
             switch results {
             case .success(let games):
                 DispatchQueue.main.async {
-                    //self.gamesList.append(contentsOf: games?.results ?? [])
+                    self.gamesList.append(contentsOf: games?.results ?? [])
                     self.paging = true
                     self.nextPageUrl = games?.next ?? ""
                     self.view?.reloadCollectionView()

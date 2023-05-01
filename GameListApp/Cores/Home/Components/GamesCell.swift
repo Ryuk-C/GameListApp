@@ -37,6 +37,13 @@ final class GamesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        gameImageView.image = nil
+        gameImageView.kf.cancelDownloadTask()
+    }
+    
     func configureCell() {
         
         contentView.addSubview(gameImageView)
@@ -62,7 +69,9 @@ final class GamesCell: UICollectionViewCell {
     
     func design(gameImageURL: String, gameName: String) {
         guard let url = URL(string: gameImageURL) else { return }
+
         gameImageView.kf.setImage(with: url)
+
         gameNameLabel.text = gameName
     }
 }
