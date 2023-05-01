@@ -68,7 +68,7 @@ struct Game: Codable {
     let updated: String?
     let userGame: String?
     let reviewsCount: Int?
-    let saturatedColor, dominantColor: Color?
+    let saturatedColor, dominantColor: String?
     let platforms: [PlatformElement]?
     let parentPlatforms: [ParentPlatform]?
     let genres: [Genre]?
@@ -109,49 +109,11 @@ struct AddedByStatus: Codable {
     let dropped, playing: Int?
 }
 
-enum Color: String, Codable {
-    case the0F0F0F = "0f0f0f"
-}
-
 // MARK: - EsrbRating
 struct EsrbRating: Codable {
     let id: Int?
-    let name: Name?
-    let slug: Slug?
-}
-
-enum Name: String, Codable {
-    case adultsOnly = "Adults Only"
-    case android = "Android"
-    case appleMacintosh = "Apple Macintosh"
-    case everyone = "Everyone"
-    case everyone10 = "Everyone 10+"
-    case iOS = "iOS"
-    case linux = "Linux"
-    case mature = "Mature"
-    case nintendo = "Nintendo"
-    case pc = "PC"
-    case playStation = "PlayStation"
-    case teen = "Teen"
-    case web = "Web"
-    case xbox = "Xbox"
-}
-
-enum Slug: String, Codable {
-    case adultsOnly = "adults-only"
-    case android = "android"
-    case everyone = "everyone"
-    case everyone10Plus = "everyone-10-plus"
-    case ios = "ios"
-    case linux = "linux"
-    case mac = "mac"
-    case mature = "mature"
-    case nintendo = "nintendo"
-    case pc = "pc"
-    case playstation = "playstation"
-    case teen = "teen"
-    case web = "web"
-    case xbox = "xbox"
+    let name: String?
+    let slug: String?
 }
 
 // MARK: - Genre
@@ -160,8 +122,8 @@ struct Genre: Codable {
     let name, slug: String?
     let gamesCount: Int?
     let imageBackground: String?
-    let domain: Domain?
-    let language: Language?
+    let domain: String?
+    let language: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, slug
@@ -169,22 +131,6 @@ struct Genre: Codable {
         case imageBackground = "image_background"
         case domain, language
     }
-}
-
-enum Domain: String, Codable {
-    case appsAppleCOM = "apps.apple.com"
-    case epicgamesCOM = "epicgames.com"
-    case gogCOM = "gog.com"
-    case marketplaceXboxCOM = "marketplace.xbox.com"
-    case microsoftCOM = "microsoft.com"
-    case nintendoCOM = "nintendo.com"
-    case playGoogleCOM = "play.google.com"
-    case storePlaystationCOM = "store.playstation.com"
-    case storeSteampoweredCOM = "store.steampowered.com"
-}
-
-enum Language: String, Codable {
-    case eng = "eng"
 }
 
 // MARK: - ParentPlatform
@@ -210,7 +156,7 @@ struct PlatformElement: Codable {
 struct PlatformPlatform: Codable {
     let id: Int?
     let name, slug: String?
-    let image, yearEnd: JSONNull?
+    let image, yearEnd: String?
     let yearStart: Int?
     let gamesCount: Int?
     let imageBackground: String?
@@ -232,16 +178,9 @@ struct Requirements: Codable {
 // MARK: - Rating
 struct Rating: Codable {
     let id: Int?
-    let title: Title?
+    let title: String?
     let count: Int?
     let percent: Double?
-}
-
-enum Title: String, Codable {
-    case exceptional = "exceptional"
-    case meh = "meh"
-    case recommended = "recommended"
-    case skip = "skip"
 }
 
 // MARK: - ShortScreenshot
@@ -254,31 +193,4 @@ struct ShortScreenshot: Codable {
 struct Store: Codable {
     let id: Int?
     let store: Genre?
-}
-
-// MARK: - Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
 }

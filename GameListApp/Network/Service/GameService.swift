@@ -9,13 +9,13 @@ import Foundation
 import Alamofire
 
 protocol GameServiceProtocol {
-    func fetchGames(page: Int, pageSize: Int, paging: Bool, newUrl: String, completion: @escaping (Result<BaseResponse?, AFError>) -> Void)
+    func fetchGames(pageSize: Int, paging: Bool, newUrl: String, completion: @escaping (Result<BaseResponse?, AFError>) -> Void)
     func fetchDetail(id: Int, completion: @escaping (Result<Detail?, AFError>) -> Void)
 }
 
 struct GameService: GameServiceProtocol {
 
-    func fetchGames(page: Int, pageSize: Int, paging: Bool, newUrl: String, completion: @escaping (Result<BaseResponse?, Alamofire.AFError>) -> Void) {
+    func fetchGames(pageSize: Int, paging: Bool, newUrl: String, completion: @escaping (Result<BaseResponse?, Alamofire.AFError>) -> Void) {
 
         var url: String {
             switch paging {
@@ -27,7 +27,6 @@ struct GameService: GameServiceProtocol {
         }
 
         let parameters: Parameters = [
-            "page": page,
             "page_size": pageSize]
         
         NetworkManager.shared.sendRequest(

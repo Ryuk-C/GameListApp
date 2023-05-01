@@ -11,10 +11,10 @@ protocol HomeViewModelProtocol {
     var view: HomeScreenDelegate? {get set}
     func viewDidLoad()
     func getGames()
+    func search(_ text: String?)
 }
 
 final class HomeViewModel {
-    
     weak var view: HomeScreenDelegate?
     private var service = GameService()
     var games: [BaseResponse] = []
@@ -36,7 +36,7 @@ extension HomeViewModel: HomeViewModelProtocol {
     
     func getGames() {
         self.view?.setLoading(isLoading: true)
-        service.fetchGames(page: page, pageSize: pageSize, paging: paging, newUrl: nextPageUrl) {[weak self] results in
+        service.fetchGames(pageSize: pageSize, paging: paging, newUrl: nextPageUrl) {[weak self] results in
             guard let self else { return }
             self.view?.setLoading(isLoading: false)
             switch results {
@@ -54,7 +54,17 @@ extension HomeViewModel: HomeViewModelProtocol {
                 //self.delegate?.dataError()
             }
         }
+    }
+    
+    func search(_ text: String?) {
         
+        if let text = text, !text.isEmpty {
+            let searchData = self.gamesList.filter { $0.name!.lowercased().contains(text.lowercased()) }
+            self.gamesList = searchData
+            self.view?.reloadCollectionView()
+        } else {
+            getGames()
+        }
         
     }
 }

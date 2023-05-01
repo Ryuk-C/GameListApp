@@ -82,7 +82,8 @@ extension HomeScreen: HomeScreenDelegate {
         title = "Games"
                 
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
+        self.searchBar.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+
         view.addSubview(searchBar)
         
         NSLayoutConstraint.activate([
@@ -98,6 +99,10 @@ extension HomeScreen: HomeScreenDelegate {
         searchBar.delegate = self
         
     }
+    
+    @objc func tapDone(sender: Any) {
+            self.view.endEditing(true)
+        }
 }
 
 extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -130,5 +135,13 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICo
 
 extension HomeScreen: UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.viewModel.search(searchText)
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+        {
+            //searchActive = false
+            self.searchBar.endEditing(true)
+        }
 }

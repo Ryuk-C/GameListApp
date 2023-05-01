@@ -9,9 +9,7 @@ import Alamofire
 import Foundation
 
 struct NetworkManager {
-    
     static let shared = NetworkManager()
-    
 }
 
 extension NetworkManager {
