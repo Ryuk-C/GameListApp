@@ -7,20 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B024FA329FFB299008DC9DD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B024FA229FFB299008DC9DD /* NetworkManager.swift */; };
+		2B024FA529FFB2EA008DC9DD /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B024FA429FFB2EA008DC9DD /* GameService.swift */; };
+		2B024FA829FFB35C008DC9DD /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B024FA729FFB35C008DC9DD /* GameModel.swift */; };
+		2B024FAC29FFB3F9008DC9DD /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B024FAB29FFB3F9008DC9DD /* HomeScreen.swift */; };
 		2B582ED829FEF21500DC0F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B582ED729FEF21500DC0F04 /* AppDelegate.swift */; };
 		2B582EDA29FEF21500DC0F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B582ED929FEF21500DC0F04 /* SceneDelegate.swift */; };
 		2B582EDC29FEF21500DC0F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B582EDB29FEF21500DC0F04 /* ViewController.swift */; };
-		2B582EDF29FEF21500DC0F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B582EDD29FEF21500DC0F04 /* Main.storyboard */; };
 		2B582EE129FEF21600DC0F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B582EE029FEF21600DC0F04 /* Assets.xcassets */; };
 		2B582EE429FEF21600DC0F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B582EE229FEF21600DC0F04 /* LaunchScreen.storyboard */; };
+		2B5D822429FFABA000E92A70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822329FFABA000E92A70 /* Alamofire */; };
+		2B5D822729FFABB000E92A70 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822629FFABB000E92A70 /* Kingfisher */; };
+		2B5D822A29FFABC200E92A70 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822929FFABC200E92A70 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B024FA229FFB299008DC9DD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2B024FA429FFB2EA008DC9DD /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		2B024FA729FFB35C008DC9DD /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		2B024FAB29FFB3F9008DC9DD /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		2B582ED429FEF21500DC0F04 /* GameListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B582ED729FEF21500DC0F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B582ED929FEF21500DC0F04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2B582EDB29FEF21500DC0F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2B582EDE29FEF21500DC0F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B582EE029FEF21600DC0F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B582EE329FEF21600DC0F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B582EE529FEF21600DC0F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,12 +40,76 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5D822729FFABB000E92A70 /* Kingfisher in Frameworks */,
+				2B5D822429FFABA000E92A70 /* Alamofire in Frameworks */,
+				2B5D822A29FFABC200E92A70 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B024F9E29FFB03F008DC9DD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2B582ED729FEF21500DC0F04 /* AppDelegate.swift */,
+				2B582ED929FEF21500DC0F04 /* SceneDelegate.swift */,
+				2B582EE029FEF21600DC0F04 /* Assets.xcassets */,
+				2B582EE229FEF21600DC0F04 /* LaunchScreen.storyboard */,
+				2B582EE529FEF21600DC0F04 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2B024F9F29FFB24B008DC9DD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FA129FFB267008DC9DD /* Service */,
+				2B024FA029FFB262008DC9DD /* Manager */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2B024FA029FFB262008DC9DD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FA229FFB299008DC9DD /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2B024FA129FFB267008DC9DD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FA429FFB2EA008DC9DD /* GameService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2B024FA629FFB34B008DC9DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FA729FFB35C008DC9DD /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B024FA929FFB3CB008DC9DD /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FAA29FFB3E3008DC9DD /* Home */,
+			);
+			path = Cores;
+			sourceTree = "<group>";
+		};
+		2B024FAA29FFB3E3008DC9DD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2B024FAB29FFB3F9008DC9DD /* HomeScreen.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		2B582ECB29FEF21500DC0F04 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +129,11 @@
 		2B582ED629FEF21500DC0F04 /* GameListApp */ = {
 			isa = PBXGroup;
 			children = (
-				2B582ED729FEF21500DC0F04 /* AppDelegate.swift */,
-				2B582ED929FEF21500DC0F04 /* SceneDelegate.swift */,
+				2B024FA929FFB3CB008DC9DD /* Cores */,
+				2B024FA629FFB34B008DC9DD /* Model */,
+				2B024F9F29FFB24B008DC9DD /* Network */,
+				2B024F9E29FFB03F008DC9DD /* Support */,
 				2B582EDB29FEF21500DC0F04 /* ViewController.swift */,
-				2B582EDD29FEF21500DC0F04 /* Main.storyboard */,
-				2B582EE029FEF21600DC0F04 /* Assets.xcassets */,
-				2B582EE229FEF21600DC0F04 /* LaunchScreen.storyboard */,
-				2B582EE529FEF21600DC0F04 /* Info.plist */,
 			);
 			path = GameListApp;
 			sourceTree = "<group>";
@@ -77,12 +148,18 @@
 				2B582ED029FEF21500DC0F04 /* Sources */,
 				2B582ED129FEF21500DC0F04 /* Frameworks */,
 				2B582ED229FEF21500DC0F04 /* Resources */,
+				2B5D822B29FFAC3C00E92A70 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GameListApp;
+			packageProductDependencies = (
+				2B5D822329FFABA000E92A70 /* Alamofire */,
+				2B5D822629FFABB000E92A70 /* Kingfisher */,
+				2B5D822929FFABC200E92A70 /* Lottie */,
+			);
 			productName = GameListApp;
 			productReference = 2B582ED429FEF21500DC0F04 /* GameListApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +188,11 @@
 				Base,
 			);
 			mainGroup = 2B582ECB29FEF21500DC0F04;
+			packageReferences = (
+				2B5D822229FFABA000E92A70 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2B5D822529FFABB000E92A70 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2B5D822829FFABC200E92A70 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 2B582ED529FEF21500DC0F04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,34 +209,49 @@
 			files = (
 				2B582EE429FEF21600DC0F04 /* LaunchScreen.storyboard in Resources */,
 				2B582EE129FEF21600DC0F04 /* Assets.xcassets in Resources */,
-				2B582EDF29FEF21500DC0F04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B5D822B29FFAC3C00E92A70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B582ED029FEF21500DC0F04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B024FA329FFB299008DC9DD /* NetworkManager.swift in Sources */,
 				2B582EDC29FEF21500DC0F04 /* ViewController.swift in Sources */,
+				2B024FAC29FFB3F9008DC9DD /* HomeScreen.swift in Sources */,
+				2B024FA529FFB2EA008DC9DD /* GameService.swift in Sources */,
 				2B582ED829FEF21500DC0F04 /* AppDelegate.swift in Sources */,
 				2B582EDA29FEF21500DC0F04 /* SceneDelegate.swift in Sources */,
+				2B024FA829FFB35C008DC9DD /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2B582EDD29FEF21500DC0F04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B582EDE29FEF21500DC0F04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2B582EE229FEF21600DC0F04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,6 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GameListApp/Support/Info;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -270,6 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GameListApp/Support/Info;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -289,12 +388,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J77597ZZ4K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GameListApp/Info.plist;
+				INFOPLIST_FILE = GameListApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +401,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.haznedar.GameListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -317,12 +419,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J77597ZZ4K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GameListApp/Info.plist;
+				INFOPLIST_FILE = GameListApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +432,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.haznedar.GameListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -358,6 +463,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B5D822229FFABA000E92A70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		2B5D822529FFABB000E92A70 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		2B5D822829FFABC200E92A70 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B5D822329FFABA000E92A70 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B5D822229FFABA000E92A70 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		2B5D822629FFABB000E92A70 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B5D822529FFABB000E92A70 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		2B5D822929FFABC200E92A70 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B5D822829FFABC200E92A70 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B582ECC29FEF21500DC0F04 /* Project object */;
 }
