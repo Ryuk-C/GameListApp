@@ -11,6 +11,7 @@ import Foundation
 struct NetworkManager {
     
     static let shared = NetworkManager()
+    
 }
 
 extension NetworkManager {
@@ -18,6 +19,7 @@ extension NetworkManager {
     func sendRequest<T: Codable>(type: T.Type,
                                  url: String,
                                  method: HTTPMethod,
+                                 parameters: Parameters,
                                  completion: @escaping ((Result<T, AFError>) -> Void)) {
         
         AF.request(url,
