@@ -30,6 +30,7 @@ final class GamesImageView: UIImageView {
             switch result {
             case .success(let data):
                 DispatchQueue.main.async { self.image = UIImage(data: data) }
+            
             case .failure(_):
                 break
             }

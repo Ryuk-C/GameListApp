@@ -47,7 +47,7 @@ extension HomeViewModel: HomeViewModelProtocol {
                     self.view?.reloadCollectionView()
                 }
            
-            case .failure(_):
+            case .failure(let error):
                 self.view?.dataError()
             }
         }

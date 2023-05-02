@@ -13,6 +13,7 @@ protocol HomeScreenDelegate: AnyObject {
     func configureVC()
     func configureCollectionView()
     func reloadCollectionView()
+    func navigateToDetailScreen(id: Int, gameTitle: String)
 }
 
 final class HomeScreen: UIViewController {
@@ -38,6 +39,7 @@ final class HomeScreen: UIViewController {
 }
 
 extension HomeScreen: HomeScreenDelegate {
+    
     func dataError() {
         self.errorMessage(title: "Error", message: "Games could not loaded! Please try again.")
     }
@@ -107,9 +109,19 @@ extension HomeScreen: HomeScreenDelegate {
     @objc func tapDone(sender: Any) {
             self.view.endEditing(true)
         }
+    
+    func navigateToDetailScreen(id: Int, gameTitle: String) {
+        
+        DispatchQueue.main.async {
+            
+            self.navigationController?.pushViewController(
+                DetailScreen(gameID: id, gameTitle: gameTitle), animated: true
+            )
+        }
+    }
 }
 
-extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.gamesList.count
@@ -135,6 +147,12 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         if offsetY >= contentHeight - (2 * height) {
             viewModel.getGames()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigateToDetailScreen(
+            id: viewModel.gamesList[indexPath.item].id ?? 0, gameTitle: viewModel.gamesList[indexPath.item].name ?? ""
+        )
     }
 }
 

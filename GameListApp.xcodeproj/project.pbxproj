@@ -33,6 +33,12 @@
 		2B5D822429FFABA000E92A70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822329FFABA000E92A70 /* Alamofire */; };
 		2B5D822729FFABB000E92A70 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822629FFABB000E92A70 /* Kingfisher */; };
 		2B5D822A29FFABC200E92A70 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2B5D822929FFABC200E92A70 /* Lottie */; };
+		2B938FEF2A007CF500688B61 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B938FEE2A007CF500688B61 /* DetailScreen.swift */; };
+		2B938FF12A007E8200688B61 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B938FF02A007E8200688B61 /* DetailViewModel.swift */; };
+		2BA56AF62A01426000595737 /* GameListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BA56AF42A01426000595737 /* GameListApp.xcdatamodeld */; };
+		2BA56AFE2A0144C600595737 /* FavoriteCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA56AFD2A0144C600595737 /* FavoriteCoreDataHelper.swift */; };
+		2BA56B012A014A9E00595737 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA56AFF2A014A9E00595737 /* Favorite+CoreDataClass.swift */; };
+		2BA56B022A014A9E00595737 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA56B002A014A9E00595737 /* Favorite+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		2B582EE029FEF21600DC0F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B582EE329FEF21600DC0F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B582EE529FEF21600DC0F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B938FEE2A007CF500688B61 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		2B938FF02A007E8200688B61 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2BA56AF52A01426000595737 /* GameListApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameListApp.xcdatamodel; sourceTree = "<group>"; };
+		2BA56AFD2A0144C600595737 /* FavoriteCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoreDataHelper.swift; sourceTree = "<group>"; };
+		2BA56AFF2A014A9E00595737 /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2BA56B002A014A9E00595737 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +139,7 @@
 		2B024FA929FFB3CB008DC9DD /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				2B938FED2A007CE000688B61 /* Detail */,
 				2B024FB429FFB6D4008DC9DD /* Favorites */,
 				2B024FAF29FFB5DD008DC9DD /* TabbarController */,
 				2B024FAA29FFB3E3008DC9DD /* Home */,
@@ -218,6 +231,7 @@
 		2B582ED629FEF21500DC0F04 /* GameListApp */ = {
 			isa = PBXGroup;
 			children = (
+				2BA56AF32A01423B00595737 /* CoreData */,
 				2B0A846E2A001DA00048C4BA /* Utilities */,
 				2B024FC129FFC88C008DC9DD /* Extensions */,
 				2B024FA929FFB3CB008DC9DD /* Cores */,
@@ -226,6 +240,42 @@
 				2B024F9E29FFB03F008DC9DD /* Support */,
 			);
 			path = GameListApp;
+			sourceTree = "<group>";
+		};
+		2B938FED2A007CE000688B61 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2B938FEE2A007CF500688B61 /* DetailScreen.swift */,
+				2B938FF02A007E8200688B61 /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		2BA56AF32A01423B00595737 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2BA56AFC2A01448E00595737 /* Favorite */,
+				2BA56AFB2A01448200595737 /* DataModel */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2BA56AFB2A01448200595737 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2BA56AF42A01426000595737 /* GameListApp.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		2BA56AFC2A01448E00595737 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				2BA56AFF2A014A9E00595737 /* Favorite+CoreDataClass.swift */,
+				2BA56B002A014A9E00595737 /* Favorite+CoreDataProperties.swift */,
+				2BA56AFD2A0144C600595737 /* FavoriteCoreDataHelper.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,12 +386,15 @@
 				2B0A84722A001E0E0048C4BA /* GamesImageView.swift in Sources */,
 				2B024FA329FFB299008DC9DD /* NetworkManager.swift in Sources */,
 				2B024FCF29FFEF50008DC9DD /* UICollectionView+Ext.swift in Sources */,
+				2BA56AF62A01426000595737 /* GameListApp.xcdatamodeld in Sources */,
 				2B024FB829FFB766008DC9DD /* HomeViewModel.swift in Sources */,
 				2B024FAE29FFB515008DC9DD /* Detail.swift in Sources */,
 				2B024FB329FFB61F008DC9DD /* TabBarController.swift in Sources */,
 				2B024FAC29FFB3F9008DC9DD /* HomeScreen.swift in Sources */,
+				2B938FF12A007E8200688B61 /* DetailViewModel.swift in Sources */,
 				2B024FBA29FFB774008DC9DD /* FavoritesViewModel.swift in Sources */,
 				2B024FC829FFC9C3008DC9DD /* GamesCell.swift in Sources */,
+				2BA56B012A014A9E00595737 /* Favorite+CoreDataClass.swift in Sources */,
 				2B024FA529FFB2EA008DC9DD /* GameService.swift in Sources */,
 				2B0A84702A001DB00048C4BA /* URLSessionNetworkManager.swift in Sources */,
 				2B582ED829FEF21500DC0F04 /* AppDelegate.swift in Sources */,
@@ -349,7 +402,10 @@
 				2B024FA829FFB35C008DC9DD /* GameModel.swift in Sources */,
 				2B024FB629FFB703008DC9DD /* FavoriteScreen.swift in Sources */,
 				2B024FCB29FFD282008DC9DD /* GameListEndpoints.swift in Sources */,
+				2BA56B022A014A9E00595737 /* Favorite+CoreDataProperties.swift in Sources */,
+				2B938FEF2A007CF500688B61 /* DetailScreen.swift in Sources */,
 				2B024FC529FFC8F7008DC9DD /* CGFloat+Ext.swift in Sources */,
+				2BA56AFE2A0144C600595737 /* FavoriteCoreDataHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +551,7 @@
 				INFOPLIST_FILE = GameListApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -525,6 +582,7 @@
 				INFOPLIST_FILE = GameListApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -610,6 +668,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2BA56AF42A01426000595737 /* GameListApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2BA56AF52A01426000595737 /* GameListApp.xcdatamodel */,
+			);
+			currentVersion = 2BA56AF52A01426000595737 /* GameListApp.xcdatamodel */;
+			path = GameListApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2B582ECC29FEF21500DC0F04 /* Project object */;
 }

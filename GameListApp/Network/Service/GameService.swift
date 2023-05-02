@@ -12,6 +12,7 @@ protocol GameServiceProtocol {
     func fetchGames(
         pageSize: Int, paging: Bool, newUrl: String, completion: @escaping (Result<BaseResponse?, AFError>
         ) -> Void)
+
     func fetchDetail(id: Int, completion: @escaping (Result<Detail?, AFError>) -> Void)
 }
 
@@ -23,20 +24,17 @@ struct GameService: GameServiceProtocol {
 
         var url: String {
             switch paging {
-                
+
             case true:
                 return newUrl
-                
+
             case false:
                 return "\(GameListEndpoints.getList.url)\(GameListEndpoints.getList.apiKey)"
             }
         }
 
-        let parameters: Parameters =
-        ["page_size": pageSize]
-
         NetworkManager.shared.sendRequest(
-            type: BaseResponse.self, url: url, method: .get, parameters: parameters,
+            type: BaseResponse.self, url: url, method: .get,
             completion: { response in
 
                 switch response {
@@ -51,5 +49,23 @@ struct GameService: GameServiceProtocol {
     }
 
     func fetchDetail(id: Int, completion: @escaping (Result<Detail?, Alamofire.AFError>) -> Void) {
+
+        let url = "\(GameListEndpoints.getDetail.url)\(id)?\(GameListEndpoints.getDetail.apiKey)"
+
+        NetworkManager.shared.sendRequest(
+            type: Detail.self, url: url, method: .get, completion: { details in
+
+                switch details {
+
+                case .success(let detail):
+                    print("ccc")
+                    print(url)
+                    print(detail)
+                    completion(.success(detail))
+
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            })
     }
 }

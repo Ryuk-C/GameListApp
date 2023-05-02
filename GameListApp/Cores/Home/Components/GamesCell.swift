@@ -24,7 +24,7 @@ final class GamesCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
         label.textColor = .white
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     
