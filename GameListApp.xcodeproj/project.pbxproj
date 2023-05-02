@@ -215,6 +215,7 @@
 		2B0A846E2A001DA00048C4BA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2BA56B072A01938200595737 /* Lottie */,
 				2B0A846F2A001DB00048C4BA /* URLSessionNetworkManager.swift */,
 			);
 			path = Utilities;
@@ -239,7 +240,6 @@
 		2B582ED629FEF21500DC0F04 /* GameListApp */ = {
 			isa = PBXGroup;
 			children = (
-				2BA56B072A01938200595737 /* Lottie */,
 				2BA56AF32A01423B00595737 /* CoreData */,
 				2B0A846E2A001DA00048C4BA /* Utilities */,
 				2B024FC129FFC88C008DC9DD /* Extensions */,
