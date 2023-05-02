@@ -12,6 +12,7 @@ protocol HomeViewModelProtocol {
     func viewDidLoad()
     func getGames()
     func search(_ text: String?)
+    func navigateToDetailScreen(id: Int, gameTitle: String)
 }
 
 final class HomeViewModel {
@@ -48,6 +49,7 @@ extension HomeViewModel: HomeViewModelProtocol {
                 }
            
             case .failure(let error):
+                print(error)
                 self.view?.dataError()
             }
         }
@@ -62,5 +64,9 @@ extension HomeViewModel: HomeViewModelProtocol {
         } else {
             getGames()
         }
+    }
+    
+    func navigateToDetailScreen(id: Int, gameTitle: String) {
+        view?.navigateToDetailScreen(id: id, gameTitle: gameTitle)
     }
 }

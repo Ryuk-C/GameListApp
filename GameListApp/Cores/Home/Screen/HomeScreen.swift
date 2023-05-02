@@ -150,8 +150,8 @@ extension HomeScreen: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToDetailScreen(
-            id: viewModel.gamesList[indexPath.item].id ?? 0, gameTitle: viewModel.gamesList[indexPath.item].name ?? ""
+        viewModel.navigateToDetailScreen(id: viewModel.gamesList[indexPath.item].id ?? 0,
+                                         gameTitle: viewModel.gamesList[indexPath.item].name ?? ""
         )
     }
 }

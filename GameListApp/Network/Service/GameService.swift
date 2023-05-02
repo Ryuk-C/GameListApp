@@ -58,9 +58,6 @@ struct GameService: GameServiceProtocol {
                 switch details {
 
                 case .success(let detail):
-                    print("ccc")
-                    print(url)
-                    print(detail)
                     completion(.success(detail))
 
                 case .failure(let error):

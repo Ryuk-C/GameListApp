@@ -63,7 +63,8 @@ extension DetailViewModel: DetailViewModelProtocol {
                     self.view?.prepareFavButton()
                 }
 
-            case .failure(_):
+            case .failure(let error):
+                print(error)
                 self.view?.dataError()
             }
         }
