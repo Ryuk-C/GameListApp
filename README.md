@@ -1,4 +1,5 @@
 ## Game List App
+Game List App is an application that allows you to view current games and create your own favorite game list.
 
 ## Tech stack 🏗
 * Swift
